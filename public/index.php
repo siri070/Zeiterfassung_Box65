@@ -8,6 +8,8 @@
  * Wie in der .htaccess Datei beschrieben, werden alle Anfragen, welche nicht
  * auf eine bestehende Datei zeigen hierhin umgeleitet.
  */
+$GLOBALS['appurl'] = '/BWD/Zeiterfassung_Box65/public';
+$GLOBALS['numAppurlFragments'] = 3;
 
 require_once '../lib/Dispatcher.php';
 require_once '../lib/formbuilder/FormBuilder.php';
