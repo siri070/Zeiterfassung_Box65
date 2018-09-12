@@ -8,5 +8,7 @@
 
 class ArbeitsbeginnController
 {
+    public function index(){
 
+    }
 }

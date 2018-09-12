@@ -50,9 +50,9 @@ class ConnectionHandler
             // Konfigurationsdatei auslesen
             $config = require '../config.php';
             $host = $config['database']['host'];
-            $username = $config['database']['username'];
+            $username = $config['database']['root'];
             $password = $config['database']['password'];
-            $database = $config['database']['database'];
+            $database = $config['database']['zeiterfassung'];
 
             // Verbindung initialisieren
             self::$connection = new MySQLi($host, $username, $password, $database);

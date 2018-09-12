@@ -8,5 +8,7 @@
 
 class ZeiterfassungController
 {
+    public function index(){
 
+    }
 }

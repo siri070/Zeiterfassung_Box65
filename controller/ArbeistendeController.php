@@ -8,5 +8,7 @@
 
 class ArbeistendeController
 {
+    public function index(){
 
+    }
 }

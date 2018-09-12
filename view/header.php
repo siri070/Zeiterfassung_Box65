@@ -33,14 +33,16 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/user">Benutzer</a></li>
-            <li><a href="/user/create">Benutzer erstellen</a></li>
+            <li><a href="<?=$GLOBALS['appurl']?>/user">Startseite</a></li>
+            <li><a href="<?=$GLOBALS['appurl']?>/Mitarbeiter">Mitarbeiter verwalten</a></li>
+            <li><a href="<?=$GLOBALS['appurl']?>/Zeiterfassung/"> Arbeitszeiten</a></li>
+            <li><a href="<?=$GLOBALS['appurl']?>/QRCode/">QR-Code</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
-
+    <br>
+    <br>
     <h1><?= $heading ?></h1>
