@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `mitarbeiter`
+-- Tabellenstruktur für Tabelle `mitarbeiterController`
 --
 
 DROP TABLE IF EXISTS `mitarbeiter`;
@@ -40,11 +40,11 @@ CREATE TABLE IF NOT EXISTS `mitarbeiter` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
--- RELATIONEN DER TABELLE `mitarbeiter`:
+-- RELATIONEN DER TABELLE `mitarbeiterController`:
 --
 
 --
--- Daten für Tabelle `mitarbeiter`
+-- Daten für Tabelle `mitarbeiterController`
 --
 
 INSERT INTO `mitarbeiter` (`mid`, `benutzername`, `passwort`, `admin`, `vorname`, `nachname`) VALUES
