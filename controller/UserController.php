@@ -12,8 +12,8 @@ class UserController
         $userRepository = new UserRepository();
 
         $view = new View('user_index');
-        $view->title = 'Benutzer';
-        $view->heading = 'Benutzer';
+        $view->title = 'Login';
+        $view->heading = 'Login';
         $view->display();
     }
 

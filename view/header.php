@@ -29,11 +29,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Bbc MVC</a>
+          <a class="navbar-brand" href="/">BOX65</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="<?=$GLOBALS['appurl']?>/Zeiterfassung">Startseite</a></li>
+            <li><a href="<?=$GLOBALS['appurl']?>/User">Startseite</a></li>
             <li><a href="<?=$GLOBALS['appurl']?>/Mitarbeiter">Mitarbeiter verwalten</a></li>
             <li><a href="<?=$GLOBALS['appurl']?>/Zeiterfassung/adminIndex"> Arbeitszeiten</a></li>
             <li><a href="<?=$GLOBALS['appurl']?>/QRCode/">QR-Code</a></li>
