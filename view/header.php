@@ -33,9 +33,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="<?=$GLOBALS['appurl']?>/user">Startseite</a></li>
+            <li><a href="<?=$GLOBALS['appurl']?>/Zeiterfassung">Startseite</a></li>
             <li><a href="<?=$GLOBALS['appurl']?>/Mitarbeiter">Mitarbeiter verwalten</a></li>
-            <li><a href="<?=$GLOBALS['appurl']?>/Zeiterfassung/"> Arbeitszeiten</a></li>
+            <li><a href="<?=$GLOBALS['appurl']?>/Zeiterfassung/adminIndex"> Arbeitszeiten</a></li>
             <li><a href="<?=$GLOBALS['appurl']?>/QRCode/">QR-Code</a></li>
           </ul>
         </div><!--/.nav-collapse -->

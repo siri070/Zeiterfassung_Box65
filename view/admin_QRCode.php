@@ -1,7 +1,11 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: vmadmin
- * Date: 12.09.2018
- * Time: 15:58
- */
+<article class="hreview open special">
+
+         <input type="radio" name="art" value="Beginn"> Arbeitsbeginn<br>
+        <input type="radio" name="art" value="Ende"> Arbeistende<br>
+    <?php
+    $qrCodeGenerieren= new Form($GLOBALS ['appurl'] . '/QRCode/generieren');
+    echo $qrCodeGenerieren->submit()->label('Generieren')->name('generieren');
+    $qrCodeGenerieren->end();
+    ?>
+
+</article>

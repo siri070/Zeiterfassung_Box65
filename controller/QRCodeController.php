@@ -14,4 +14,10 @@ class QRCodeController
         $view->heading = 'QR-Code erstellen';
         $view->display();
     }
+    public function generieren(){
+        $view = new View('admin_ qrCodeGeneriert');
+        $view->title = 'QR-Code';
+        $view->heading = 'QR-Code';
+        $view->display();
+    }
 }
