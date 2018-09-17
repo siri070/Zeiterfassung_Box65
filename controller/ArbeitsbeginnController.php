@@ -9,6 +9,10 @@
 class ArbeitsbeginnController
 {
     public function index(){
-
+        $view = new View('member_starttime');
+        $view->title = 'Arbeitsbeginn';
+        $view->heading = 'Arbeitsbeginn';
+        $view->meldung="";
+        $view->display();
     }
 }

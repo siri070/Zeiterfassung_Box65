@@ -1,14 +1,17 @@
 <article class="hreview open special">
 
 
-    <form action="login" method="post">
+    <?php
+    $form= new Form($GLOBALS ['appurl'] . '/Arbeitsbeginn'); ?>
         Benutzername:<br>
         <input type="benutzername" name="benutzername"><br><br>
 
         Passwort:<br>
         <input type="password" name="passwort"><br><br>
 
-        <input type="submit" value="Login">
-    </form>
+    <?php
+        echo $form->submit()->label("Anmelden")->name('anmeldung');
+        $form->end();
+        ?>
 
 </article>
