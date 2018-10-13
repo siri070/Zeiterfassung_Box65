@@ -5,7 +5,6 @@
 -- Host: 127.0.0.1
 -- Erstellungszeit: 12. Sep 2018 um 15:31
 -- Server-Version: 10.1.34-MariaDB
--- PHP-Version: 5.6.37
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -23,6 +22,7 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+-- PHP-Version: 5.6.37
 
 --
 -- Tabellenstruktur für Tabelle `mitarbeiterController`
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `mitarbeiter` (
   `mid` int(11) NOT NULL AUTO_INCREMENT,
   `benutzername` varchar(4) NOT NULL,
   `passwort` varchar(30) NOT NULL,
-  `admin` tinyint(1) NOT NULL,
+  `admin` boolean(1) NOT NULL,
   `vorname` varchar(50) NOT NULL,
   `nachname` varchar(50) NOT NULL,
   PRIMARY KEY (`mid`)

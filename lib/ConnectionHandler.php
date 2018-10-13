@@ -5,7 +5,7 @@
  * selbe Verbindung auf die Datenbank zur Verfügung zu stellen.
  *
  * Bevor die Verbindung verwendet werden kann, muss die Datei config.php
- * entsprechend der Beschrebing in der Datei config.example.php erstellt werden.
+ * entsprechend der Beschrebing in der Datei config.php erstellt werden.
  * Danach kann die Verbindung in den repositories folgendermassen aufgerufen
  * werden.
  *
@@ -50,9 +50,10 @@ class ConnectionHandler
             // Konfigurationsdatei auslesen
             $config = require '../config.php';
             $host = $config['database']['host'];
-            $username = $config['database']['root'];
+            $username = $config['database']['username'];
             $password = $config['database']['password'];
-            $database = $config['database']['zeiterfassung'];
+            $database = $config['database']['database'];
+
 
             // Verbindung initialisieren
             self::$connection = new MySQLi($host, $username, $password, $database);

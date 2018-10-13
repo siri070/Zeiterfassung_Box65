@@ -14,5 +14,6 @@ class ArbeitsbeginnController
         $view->heading = 'Arbeitsbeginn';
         $view->meldung="";
         $view->display();
+
     }
 }
