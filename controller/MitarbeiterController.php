@@ -57,7 +57,7 @@ class mitarbeiterController
     public function bearbeiten(){
 
         if($_POST['speichern']){
-            $id = $_POST['id'];
+            $id = $_GET['id'];
             $vorname = $_POST['vorname'];
             $nachname = $_POST['name'];
             $susNR = $_POST['snr'];

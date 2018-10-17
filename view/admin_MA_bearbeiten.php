@@ -1,10 +1,10 @@
 <?php
-$form= new Form($GLOBALS ['appurl'] . '/Mitarbeiter/bearbeiten');
-echo $form->text()->label('Id')->name('id')->value($mitarbeiter->id);
+$form= new Form($GLOBALS ['appurl'] . '/Mitarbeiter/bearbeiten?id='.$mitarbeiter->id);
+//echo $form->text()->label('Id')->name('id')->value($mitarbeiter->id);
 echo $form->text()->label('Name')->name('name')->value($mitarbeiter->nachname);
 echo $form->text()->label('Vorname')->name('vorname')->value($mitarbeiter->vorname);
 echo $form->text()->label('S-NR.')->name('snr')->value($mitarbeiter->benutzername);
-echo $form->text()->label('Passwort')->name('passwort')->value($mitarbeiter->passwort);
+echo $form->text()->label('Passwort')->name('passwort');
 echo $form->submit()->label('Speichern')->name('speichern');
 $form->end();
 
