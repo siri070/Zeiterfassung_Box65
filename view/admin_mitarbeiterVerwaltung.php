@@ -17,15 +17,19 @@
                             <?php $bearbeiten= new Form($GLOBALS ['appurl'] . '/Mitarbeiter/bearbeitenView?id='.$mitarbeiter->id );
                             echo $bearbeiten->submit()->label('Bearbeiten')->name('bearbeiten');
                             $bearbeiten->end();
-                            echo $meldung;
+
                             ?>
                         <?php endforeach ?>
-                    <?php endif ?>
+                    <?php endif;
+
+                     ?>
 
                 </div>
 
             </div>
+
              <?php
+             echo $meldung;
                   $hinzufuegen= new Form($GLOBALS ['appurl'] . '/Mitarbeiter/hinzufuegenView');
                   echo $hinzufuegen->submit()->label('Hinzufügen')->name('hinzufuegen');
                   $hinzufuegen->end();

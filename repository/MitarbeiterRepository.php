@@ -25,7 +25,16 @@ class MitarbeiterRepository extends Repository
         return $statement->insert_id;
     }
 
-    function updateByID(){
+    function updateByID($vorname, $nachname, $susNR, $passwort , $id){
+
+        $password = password_hash($passwort,PASSWORD_DEFAULT);
+        $query = "UPDATE $this->tableName SET vorname = ? , nachname = ? , benutzername = ? , passwort = ? WHERE id = ? ";
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('ssssi', $vorname, $nachname, $susNR, $password , $id);
+        $statement->execute();
+        if (!$statement->execute()) {
+            throw new Exception($statement->error);
+        }
 
     }
 
