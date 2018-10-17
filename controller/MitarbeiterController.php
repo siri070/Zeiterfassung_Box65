@@ -46,6 +46,9 @@ class mitarbeiterController
         $view = new View('admin_MA_bearbeiten');
         $view->title = 'Mitarbeiter bearbeiten';
         $view->heading = 'Mitarbeiter bearbeiten';
+        $mid = $_GET['id'];
+        $mitarbeiterRepository = new MitarbeiterRepository();
+        $view-> mitarbeiter = $mitarbeiterRepository->readById($mid);
         $view->display();
     }
 

@@ -14,7 +14,7 @@
                                 echo $mitarbeiter->nachname."  " ;
                                 echo $mitarbeiter->benutzername." "; ?></p>
 
-                            <?php $bearbeiten= new Form($GLOBALS ['appurl'] . '/Mitarbeiter/bearbeitenView');
+                            <?php $bearbeiten= new Form($GLOBALS ['appurl'] . '/Mitarbeiter/bearbeitenView?id='.$mitarbeiter->id );
                             echo $bearbeiten->submit()->label('Bearbeiten')->name('bearbeiten');
                             $bearbeiten->end();
                             echo $meldung;
