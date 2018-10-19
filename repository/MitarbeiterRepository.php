@@ -38,4 +38,17 @@ class MitarbeiterRepository extends Repository
 
     }
 
+    function login ($benutzername, $passwort){
+        $query = "SELECT * FROM $this->tableName  WHERE benutzername = benutzername AND passwort = passwort";
+        $result = $query->execute(array('benutzername' => $benutzername));
+        $mitarbeiter = $query->fetch();
+
+        if ($mitarbeiter !== false && password_verify($passwort, $mitarbeiter['passwort'])) {
+            $_SESSION['mid'] = $mitarbeiter['id'];
+            die('Ihre Arbgeitszeit hat gerade begonnen.');
+        } else {
+            $errorMessage = "Benutzername oder Passwort war ungültig<br>";
+        }
+    }
+
 }
