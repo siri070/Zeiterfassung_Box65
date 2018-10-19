@@ -10,7 +10,7 @@
         <input type="password" name="passwort"><br><br>
 
     <?php
-        echo $form->submit()->label("Anmelden")->name('anmeldung');
+        echo $form->submit()->label("Login")->name('send');
         $form->end();
         ?>
 

@@ -17,6 +17,26 @@ class UserController
         $view->display();
     }
 
+    public function login(){
+
+        if ($_POST['send']){
+            $benutzername = $_POST['benutzername'];
+            $passwort = $_POST['passwort'];
+
+            $statement = $pdo->prepare("SELECT * FROM mitarbeiter WHERE benutzername = benutzername");
+            $result = $statement->execute(array('benutzername' => $benutzername));
+            $mitarbeiter = $statement->fetch();
+
+            if ($mitarbeiter !== false && password_verify($passwort, $mitarbeiter['passwort'])) {
+                $_SESSION['mid'] = $mitarbeiter['id'];
+                die('Ihre Arbgeitszeit hat gerade begonnen.');
+            } else {
+                $errorMessage = "Benutzername oder Passwort war ungültig<br>";
+            }
+
+        }
+    }
+
     public function create()
     {
         $view = new View('user_create');
