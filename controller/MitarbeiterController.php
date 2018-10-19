@@ -39,16 +39,12 @@ class mitarbeiterController
             $benutzername = $_POST['benutzername'];
             $passwort = $_POST['passwort'];
 
-            $statement = $pdo->prepare("SELECT * FROM mitarbeiter WHERE benutzername = benutzername");
-            $result = $statement->execute(array('benutzername' => $benutzername));
-            $mitarbeiter = $statement->fetch();
+            $mitarbeiterRepository = new MitarbeiterRepository();
+            $mitarbeiterRepository->login($benutzername, $passwort);
+        }
 
-            if ($mitarbeiter !== false && password_verify($passwort, $mitarbeiter['passwort'])) {
-                $_SESSION['mid'] = $mitarbeiter['id'];
-                die('Ihre Arbgeitszeit hat gerade begonnen.');
-            } else {
-                $errorMessage = "Benutzername oder Passwort war ungültig<br>";
-            }
+        else{
+            echo "Bitte geben Sie die richtige Daten ein";
 
         }
     }
