@@ -21,6 +21,39 @@ class mitarbeiterController
         $view->display();
     }
 
+
+    public function login()
+    {
+        $mitarbeiterRepository = new MitarbeiterRepository();
+
+        $view = new View('user_index');
+        $view->title = 'Login';
+        $view->heading = 'Login';
+        $view->display();
+    }
+
+
+
+    public function doLogin(){
+
+        if ($_POST['send']){
+            $benutzername = $_POST['benutzername'];
+            $passwort = $_POST['passwort'];
+
+            $statement = $pdo->prepare("SELECT * FROM mitarbeiter WHERE benutzername = benutzername");
+            $result = $statement->execute(array('benutzername' => $benutzername));
+            $mitarbeiter = $statement->fetch();
+
+            if ($mitarbeiter !== false && password_verify($passwort, $mitarbeiter['passwort'])) {
+                $_SESSION['mid'] = $mitarbeiter['id'];
+                die('Ihre Arbgeitszeit hat gerade begonnen.');
+            } else {
+                $errorMessage = "Benutzername oder Passwort war ungültig<br>";
+            }
+
+        }
+    }
+
     public function hinzufuegenView(){
         $view = new View('admin_MA_hinzu');
         $view->title = 'Mitarbeiter hinzufügen';
