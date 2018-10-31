@@ -12,18 +12,24 @@ class MitarbeiterRepository extends Repository
     protected $tableName = 'mitarbeiter';
 
 
-    function login ($benutzername, $passwort){
-        $query = "SELECT * FROM $this->tableName  WHERE benutzername = benutzername AND passwort = passwort";
+    function login ($benutzername, $passwort, $admin){
+       // $query = "SELECT * FROM $this->tableName  WHERE benutzername = benutzername AND passwort = passwort";
+        $query = "SELECT * FROM $this->tableName  WHERE benutzername = $benutzername";
         $result = $query->execute(array('benutzername' => $benutzername));
         $mitarbeiter = $query->fetch();
 
-        if ($mitarbeiter !== false && password_verify($passwort, $mitarbeiter['passwort'])) {
+        if ($mitarbeiter !== $benutzername && password_verify($passwort, $mitarbeiter['passwort'])) {
             $_SESSION['mid'] = $mitarbeiter['id'];
             die('Ihre Arbgeitszeit hat gerade begonnen.');
-        } else {
+        } else if ($mitarbeiter !== $benutzername && password_verify($passwort, $mitarbeiter['passwort']) && $admin = 1 ) {
+            header("Location".$GLOBALS ['appurl'] . '/Zeiterfassung/adminIndex' );
+        }
+        else{
             $errorMessage = "Benutzername oder Passwort war ungültig<br>";
         }
     }
+
+
 
     function create($vorname, $nachname, $susNR, $passwort){
         $password = password_hash($passwort,PASSWORD_DEFAULT);
