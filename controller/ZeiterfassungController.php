@@ -26,6 +26,7 @@ class ZeiterfassungController
         $view->title = 'Zeiterfassungen';
         $view->heading = 'Zeiterfassungen';
         $view->display();
-}
+    }
+
 
 }
