@@ -6,9 +6,25 @@
  * Time: 15:44
  */
 require_once '../lib/Repository.php';
+require_once "../controller/MitarbeiterController.php";
 class MitarbeiterRepository extends Repository
 {
     protected $tableName = 'mitarbeiter';
+
+
+    function login ($benutzername, $passwort){
+        $query = "SELECT * FROM $this->tableName  WHERE benutzername = benutzername AND passwort = passwort";
+        $result = $query->execute(array('benutzername' => $benutzername));
+        $mitarbeiter = $query->fetch();
+
+        if ($mitarbeiter !== false && password_verify($passwort, $mitarbeiter['passwort'])) {
+            $_SESSION['mid'] = $mitarbeiter['id'];
+            die('Ihre Arbgeitszeit hat gerade begonnen.');
+        } else {
+            $errorMessage = "Benutzername oder Passwort war ungültig<br>";
+        }
+    }
+
     function create($vorname, $nachname, $susNR, $passwort){
         $password = password_hash($passwort,PASSWORD_DEFAULT);
 
@@ -38,17 +54,12 @@ class MitarbeiterRepository extends Repository
 
     }
 
-    function login ($benutzername, $passwort){
-        $query = "SELECT * FROM $this->tableName  WHERE benutzername = benutzername AND passwort = passwort";
-        $result = $query->execute(array('benutzername' => $benutzername));
-        $mitarbeiter = $query->fetch();
+    function logout(){
 
-        if ($mitarbeiter !== false && password_verify($passwort, $mitarbeiter['passwort'])) {
-            $_SESSION['mid'] = $mitarbeiter['id'];
-            die('Ihre Arbgeitszeit hat gerade begonnen.');
-        } else {
-            $errorMessage = "Benutzername oder Passwort war ungültig<br>";
-        }
+   if(session_destroy()) {
+      header("Location:" .$GLOBALS['appurl']."/login/");
+   }
     }
+
 
 }
