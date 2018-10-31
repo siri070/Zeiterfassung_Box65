@@ -10,7 +10,6 @@ require_once ("../repository/MitarbeiterRepository.php");
 class mitarbeiterController
 {
 
-
     public function index(){
         $view = new View('admin_mitarbeiterVerwaltung');
         $view->title = 'Mitarbeiter';

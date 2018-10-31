@@ -10,7 +10,8 @@
  */
 $GLOBALS['appurl'] = '/BWD/Zeiterfassung_Box65/public';
 $GLOBALS['numAppurlFragments'] = 3;
-
+session_start();
+$_SESSION['admin']=1;
 require_once '../lib/Dispatcher.php';
 require_once '../lib/formbuilder/FormBuilder.php';
 require_once '../lib/View.php';
