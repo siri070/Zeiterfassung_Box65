@@ -12,22 +12,94 @@ class MitarbeiterRepository extends Repository
     protected $tableName = 'mitarbeiter';
 
 
-    function login ($benutzername, $passwort, $admin){
-       // $query = "SELECT * FROM $this->tableName  WHERE benutzername = benutzername AND passwort = passwort";
-        $query = "SELECT * FROM $this->tableName  WHERE benutzername = $benutzername";
-        $result = $query->execute(array('benutzername' => $benutzername));
-        $mitarbeiter = $query->fetch();
+    function readByKuerzel ($benutzername){
+        // Query erstellen
+        $query = "SELECT * FROM {$this->tableName} WHERE benutzername = ?";
 
-        if ($mitarbeiter !== $benutzername && password_verify($passwort, $mitarbeiter['passwort'])) {
-            $_SESSION['mid'] = $mitarbeiter['id'];
-            die('Ihre Arbgeitszeit hat gerade begonnen.');
-        } else if ($mitarbeiter !== $benutzername && password_verify($passwort, $mitarbeiter['passwort']) && $admin = 1 ) {
-            header("Location".$GLOBALS ['appurl'] . '/Zeiterfassung/adminIndex' );
+        // Datenbankverbindung anfordern und, das Query "preparen" (vorbereiten)
+        // und die Parameter "binden"
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('s', $benutzername);
+
+        // Das Statement absetzen
+        $statement->execute();
+
+        // Resultat der Abfrage holen
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
         }
-        else{
-            $errorMessage = "Benutzername oder Passwort war ungültig<br>";
-        }
+
+        // Ersten Datensatz aus dem Reultat holen
+        $row = $result->fetch_object();
+
+        // Datenbankressourcen wieder freigeben
+        $result->close();
+
+        // Den gefundenen Datensatz zurückgeben
+        return $row;
+
+
     }
+    function readByName ($vorname){
+        // Query erstellen
+        $query = "SELECT * FROM {$this->tableName} WHERE vorname = ?";
+
+        // Datenbankverbindung anfordern und, das Query "preparen" (vorbereiten)
+        // und die Parameter "binden"
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('s', $vorname);
+
+        // Das Statement absetzen
+        $statement->execute();
+
+        // Resultat der Abfrage holen
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+        // Ersten Datensatz aus dem Reultat holen
+        $row = $result->fetch_object();
+
+        // Datenbankressourcen wieder freigeben
+        $result->close();
+
+        // Den gefundenen Datensatz zurückgeben
+        return $row;
+
+
+    }
+    function readBySnr ($snr){
+        // Query erstellen
+        $query = "SELECT * FROM {$this->tableName} WHERE S-NR = ?";
+
+        // Datenbankverbindung anfordern und, das Query "preparen" (vorbereiten)
+        // und die Parameter "binden"
+        $statement = ConnectionHandler::getConnection()->prepare($query);
+        $statement->bind_param('i', $snr);
+
+        // Das Statement absetzen
+        $statement->execute();
+
+        // Resultat der Abfrage holen
+        $result = $statement->get_result();
+        if (!$result) {
+            throw new Exception($statement->error);
+        }
+
+        // Ersten Datensatz aus dem Reultat holen
+        $row = $result->fetch_object();
+
+        // Datenbankressourcen wieder freigeben
+        $result->close();
+
+        // Den gefundenen Datensatz zurückgeben
+        return $row;
+
+
+    }
+
 
 
 

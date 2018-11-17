@@ -14,7 +14,8 @@ class ArbeitsbeginnRepository extends Repository
         $query = "INSERT INTO $this->tableName (sid, beginn) VALUES (?,? )";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $datumZeit = date('Y n d h:i');
+        $t=time();
+        $datumZeit = date('Y n d h:i',$t);
         $statement->bind_param('ii', $sid, $datumZeit);
 
         if (!$statement->execute()) {

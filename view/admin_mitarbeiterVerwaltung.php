@@ -29,7 +29,7 @@
             </div>
 
              <?php
-             echo $meldung;
+
                   $hinzufuegen= new Form($GLOBALS ['appurl'] . '/Mitarbeiter/hinzufuegenView');
                   echo $hinzufuegen->submit()->label('Hinzufügen')->name('hinzufuegen');
                   $hinzufuegen->end();

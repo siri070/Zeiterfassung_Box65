@@ -33,13 +33,17 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
+            <?php if(!isset($_SESSION['id'])){   ?>
             <li><a href="<?=$GLOBALS['appurl']?>/Mitarbeiter/login">Startseite</a></li>
-            <?php if($_SESSION['admin']== 1){?>
+            <?php }
+            else{
+                if($_SESSION['admin']== 1){?>
             <li><a href="<?=$GLOBALS['appurl']?>/Mitarbeiter">Mitarbeiter verwalten</a></li>
             <li><a href="<?=$GLOBALS['appurl']?>/Zeiterfassung/adminIndex"> Arbeitszeiten</a></li>
             <li><a href="<?=$GLOBALS['appurl']?>/QRCode/">QR-Code</a></li>
             <li><a href="<?=$GLOBALS['appurl']?>/Mitarbeiter/logout">Logout</a></li>
-            <?php }?>
+            <?php }}
+              ?>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -49,3 +53,4 @@
     <br>
     <br>
     <h1><?= $heading ?></h1>
+

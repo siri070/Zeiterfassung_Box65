@@ -16,7 +16,12 @@ class mitarbeiterController
         $view->heading = 'Mitarbeiter';
         $mitarbeiterRepository = new MitarbeiterRepository();
         $view->alleMitarbeiter= $mitarbeiterRepository->readAll();
-        $view->meldung="";
+        if(isset($GLOBALS['fehler'])){
+            $view->fehlermeldung= $GLOBALS['fehler'];
+        }
+        else{
+            $view->fehlermeldung="";
+        }
         $view->display();
     }
 
@@ -40,13 +45,36 @@ class mitarbeiterController
             $passwort = $_POST['passwort'];
 
             $mitarbeiterRepository = new MitarbeiterRepository();
-            $mitarbeiterRepository->login($benutzername, $passwort);
 
+            $mitarbeiter=$mitarbeiterRepository->readByKuerzel($benutzername);
+            $passwortStimmt= password_verify($passwort, $mitarbeiter->passwort);
+
+            if($passwortStimmt){
+                $_SESSION['id']= $mitarbeiter->id;
+                if($mitarbeiter->admin == 1){
+                    $_SESSION['admin']=1;
+                    header('Location: /BWD/Zeiterfassung_Box65/public/Zeiterfassung/adminIndex');
+                }
+                else{
+                    $_SESSION['admin']=NULL;
+                    header('Location: /BWD/Zeiterfassung_Box65/public/Default');
+                }
+            }
+            else{
+                $GLOBALS['fehler']= "Passwort ist falsch.";
+                header('Location: /BWD/Zeiterfassung_Box65/public/Mitarbeiter/Login');
+
+            }
 
         }
-        else{
-            echo "Bitte geben Sie die richtige Daten ein";
-        }
+
+
+    }
+    public function logout(){
+
+       session_destroy();
+        header('Location: /BWD/Zeiterfassung_Box65/public/Mitarbeiter/Login');
+
     }
 
     public function hinzufuegenView(){

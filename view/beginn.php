@@ -1,0 +1,11 @@
+<article class="hreview open special">
+
+    <?php
+    $form= new Form($GLOBALS ['appurl'] . '/Arbeitsbeginn/doLogin');
+    echo $form->text()->label('Benutzername')->name('benutzername');
+    echo $form->text()->label('Passwort')->name('passwort');
+    echo $form->submit()->label("Login")->name('send');
+    $form->end();
+    ?>
+
+</article>

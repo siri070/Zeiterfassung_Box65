@@ -1,1 +1,1 @@
-<img src="/BWD/Zeiterfassung_Box65/public/images/Download.png" alt="QR-Code">
+<img src="/BWD/Zeiterfassung_Box65/public/<?= $bild?>" alt="QR-Code"/>

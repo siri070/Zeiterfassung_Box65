@@ -27,7 +27,7 @@ class ZeiterfassungRepository extends Repository
     }
 
     public function getTimeOfAll(){
-        $query="SELECT * FROM $this->tableName as z JOIN arbeitsende as ae ON z.aeId = ae.aeId JOIN arbeitsbeginn as ab ON z.abId = ab.abId ";
+        $query="SELECT * FROM $this->tableName as z JOIN arbeitsende as ae ON z.aeId = ae.aeId JOIN arbeitsbeginn as ab ON z.abId = ab.abId JOIN mitarbeiter as m ON m.id= z.zid ";
         $statement = ConnectionHandler::getConnection()->prepare($query);
 
         if(!$statement->execute()){
@@ -35,13 +35,16 @@ class ZeiterfassungRepository extends Repository
         }
         else{
             $resultat = $statement->get_result();
-            $arbeitsZeiten = $resultat->fetch_assoc();
+            $arbeitsZeiten = array();
+            while ($zeit = $resultat->fetch_object()) {
+                $arbeitsZeiten[]= $zeit;
+            }
             return $arbeitsZeiten;
         }
 
     }
     public function getTimeOfOne($sid){
-        $query="SELECT * FROM $this->tableName as z JOIN arbeitsende as ae ON z.aeId = ae.aeId JOIN arbeitsbeginn as ab ON z.abId = ab.abId WHERE mid= ?";
+        $query="SELECT * FROM $this->tableName as z JOIN arbeitsende as ae ON z.aeId = ae.aeId JOIN arbeitsbeginn as ab ON z.abId = ab.abId JOIN mitarbeiter as m ON m.id= z.zid WHERE mid= ?";
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('i', $sid);
         if(!$statement->execute()){
@@ -49,7 +52,10 @@ class ZeiterfassungRepository extends Repository
         }
         else{
             $resultat = $statement->get_result();
-            $arbeitsZeiten = $resultat->fetch_assoc();
+            $arbeitsZeiten = array();
+            while ($zeit = $resultat->fetch_object()) {
+                $arbeitsZeiten[]= $zeit;
+            }
             return $arbeitsZeiten;
         }
 
