@@ -13,11 +13,11 @@ $form->end();
 
         <table>
         <tr>
-        <th>Nachname              </th>
-        <th>Vorname               </th>
-        <th>Arbeitsbeginn         </th>
-        <th>Arbeitsende           </th>
-        <th>Arbeitszeit           </th></tr>
+        <th style="width: 11em">Nachname              </th>
+        <th style="width: 11em">Vorname               </th>
+        <th style="width: 11em">Arbeitsbeginn         </th>
+        <th style="width: 11em">Arbeitsende           </th>
+        <th style="width: 11em">Arbeitszeit           </th></tr>
 
 
     <?php foreach ($alleZeiten as $Zeit):
