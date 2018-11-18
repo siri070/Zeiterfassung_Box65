@@ -2,26 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10ca031e-9895-401e-b39e-5a017f249ff1" name="Default Changelist" comment="QR-Code funktioniert,verschieden view für beginn und ende-&gt; damit automatisch weis in welche tabelle es den Datensatz einfügen muss, zeiterfassung funktioniert, suche nach mitarbeiter funktioniert.">
-      <change afterPath="$PROJECT_DIR$/lib/validation.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/beginn.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/ende.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/ArbeistendeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ArbeistendeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/ArbeitsbeginnController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ArbeitsbeginnController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/MitarbeiterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/MitarbeiterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/QRCodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/QRCodeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/ZeiterfassungController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ZeiterfassungController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/zeiterfassung.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/zeiterfassung.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/validation.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repository/ArbeitsbeginnRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ArbeitsbeginnRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repository/ArbeitsendeRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ArbeitsendeRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repository/MitarbeiterRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/repository/MitarbeiterRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repository/ZeiterfassungRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/repository/ZeiterfassungRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/admin_ qrCodeGeneriert.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin_ qrCodeGeneriert.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/admin_QRCode.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin_QRCode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/admin_mitarbeiterVerwaltung.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin_mitarbeiterVerwaltung.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/admin_zeituebersicht.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin_zeituebersicht.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/user_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/user_index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -93,29 +86,77 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ArbeitsendeRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/repository/ArbeitsendeRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="20" column="51" lean-forward="true" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="validation.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/validation.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ArbeitsbeginnRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/repository/ArbeitsbeginnRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="17" selection-end-column="42" />
+            <state relative-caret-position="289">
+              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArbeitsendeRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/repository/ArbeitsendeRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="567">
+              <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZeiterfassungRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/repository/ZeiterfassungRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="377">
+              <caret line="49" column="261" selection-start-line="49" selection-start-column="261" selection-end-line="49" selection-end-column="261" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_ qrCodeGeneriert.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/admin_ qrCodeGeneriert.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="zeiterfassung.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/zeiterfassung.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1148">
+              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin_zeituebersicht.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/admin_zeituebersicht.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="1" column="63" selection-start-line="1" selection-start-column="63" selection-end-line="1" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Repository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Repository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="137" selection-start-line="137" selection-end-line="151" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -142,21 +183,23 @@
         <option value="$PROJECT_DIR$/view/user_index.php" />
         <option value="$PROJECT_DIR$/public/index.php" />
         <option value="$PROJECT_DIR$/view/admin_mitarbeiterVerwaltung.php" />
-        <option value="$PROJECT_DIR$/view/header.php" />
-        <option value="$PROJECT_DIR$/view/admin_zeituebersicht.php" />
         <option value="$PROJECT_DIR$/repository/MitarbeiterRepository.php" />
-        <option value="$PROJECT_DIR$/controller/ZeiterfassungController.php" />
-        <option value="$PROJECT_DIR$/repository/ZeiterfassungRepository.php" />
         <option value="$PROJECT_DIR$/view/admin_QRCode.php" />
-        <option value="$PROJECT_DIR$/view/admin_ qrCodeGeneriert.php" />
         <option value="$PROJECT_DIR$/controller/QRCodeController.php" />
         <option value="$PROJECT_DIR$/view/ende.php" />
         <option value="$PROJECT_DIR$/view/beginn.php" />
         <option value="$PROJECT_DIR$/controller/ArbeitsbeginnController.php" />
         <option value="$PROJECT_DIR$/controller/ArbeistendeController.php" />
         <option value="$PROJECT_DIR$/controller/MitarbeiterController.php" />
+        <option value="$PROJECT_DIR$/lib/validation.php" />
+        <option value="$PROJECT_DIR$/controller/ZeiterfassungController.php" />
         <option value="$PROJECT_DIR$/repository/ArbeitsbeginnRepository.php" />
         <option value="$PROJECT_DIR$/repository/ArbeitsendeRepository.php" />
+        <option value="$PROJECT_DIR$/view/header.php" />
+        <option value="$PROJECT_DIR$/view/admin_zeituebersicht.php" />
+        <option value="$PROJECT_DIR$/repository/ZeiterfassungRepository.php" />
+        <option value="$PROJECT_DIR$/view/admin_ qrCodeGeneriert.php" />
+        <option value="$PROJECT_DIR$/data/zeiterfassung.sql" />
       </list>
     </option>
   </component>
@@ -182,7 +225,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,6 +272,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -272,28 +315,28 @@
       <workItem from="1539429617998" duration="3490000" />
       <workItem from="1540999001554" duration="2813000" />
       <workItem from="1542442342296" duration="10117000" />
-      <workItem from="1542457952072" duration="4628000" />
+      <workItem from="1542457952072" duration="6100000" />
+      <workItem from="1542529046548" duration="8364000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45321000" />
+    <option name="totallyTimeSpent" value="55157000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27155825" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" visible="true" weight="0.68646866" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32985073" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.30666667" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26626325" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" weight="0.32985073" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32673267" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -302,26 +345,28 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32673267" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.68646866" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17789166" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.30666667" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32899868" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" weight="0.32985073" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32899868" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.30666667" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -336,20 +381,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="QR-Code funktioniert,verschieden view für beginn und ende-&gt; damit automatisch weis in welche tabelle es den Datensatz einfügen muss, zeiterfassung funktioniert, suche nach mitarbeiter funktioniert." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/view/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="74" selection-start-line="35" selection-start-column="74" selection-end-line="35" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/admin_ qrCodeGeneriert.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="61" selection-start-column="61" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/admin_QRCode.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -494,24 +525,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/UserController.php" />
-    <entry file="file://$PROJECT_DIR$/data/zeiterfassung.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Repository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="96" column="62" lean-forward="true" selection-start-line="96" selection-start-column="62" selection-end-line="96" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -536,13 +553,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/date/date.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
@@ -564,38 +574,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/repository/ZeiterfassungRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/admin_QRCode.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/QRCodeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/admin_ qrCodeGeneriert.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/admin_zeituebersicht.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -606,31 +588,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ArbeitsbeginnController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="59" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/ende.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="60" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ArbeistendeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="53" column="81" selection-start-line="53" selection-start-column="81" selection-end-line="53" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/MitarbeiterController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="21" column="13" lean-forward="true" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -641,31 +602,118 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ZeiterfassungController.php">
+    <entry file="file://$PROJECT_DIR$/controller/ArbeitsbeginnController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="51" column="63" selection-start-line="51" selection-start-column="63" selection-end-line="51" selection-end-column="63" />
+        <state relative-caret-position="-71">
+          <caret line="49" column="42" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/repository/ArbeitsbeginnRepository.php">
+    <entry file="file://$PROJECT_DIR$/controller/ArbeistendeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="17" selection-end-column="42" />
+        <state relative-caret-position="265">
+          <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/repository/ArbeitsendeRepository.php">
+    <entry file="file://$PROJECT_DIR$/controller/QRCodeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="20" column="51" lean-forward="true" selection-start-line="20" selection-start-column="51" selection-end-line="20" selection-end-column="51" />
+        <state relative-caret-position="139">
+          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/MitarbeiterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="189" column="25" selection-start-line="189" selection-start-column="25" selection-end-line="189" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/validation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="238">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ZeiterfassungController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/repository/ArbeitsbeginnRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Repository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="137" selection-start-line="137" selection-end-line="151" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/admin_zeituebersicht.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="1" column="63" selection-start-line="1" selection-start-column="63" selection-end-line="1" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/repository/ZeiterfassungRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="49" column="261" selection-start-line="49" selection-start-column="261" selection-end-line="49" selection-end-column="261" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/repository/ArbeitsendeRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/zeiterfassung (1).sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-end-line="207" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/zeiterfassung.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2285">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/admin_ qrCodeGeneriert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/zeiterfassung.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1148">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
         </state>
       </provider>
     </entry>

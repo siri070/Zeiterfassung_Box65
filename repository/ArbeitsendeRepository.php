@@ -10,12 +10,11 @@ class ArbeitsendeRepository extends Repository
 {
     protected $tableName = 'arbeitsende';
     public function create($sid){
-        $query = "INSERT INTO $this->tableName (sid, ende) VALUES (?,? )";
+        $query = "INSERT INTO $this->tableName (sid, ende) VALUES (?,CURRENT_TIMESTAMP() )";
 
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $t=time();
-        $datumZeit = date('Y n d h:i',$t);
-        $statement->bind_param('ii', $sid, $datumZeit);
+
+        $statement->bind_param('i', $sid);
 
         if (!$statement->execute()) {
             throw new Exception($statement->error);

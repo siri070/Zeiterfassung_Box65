@@ -27,24 +27,27 @@ class ZeiterfassungRepository extends Repository
     }
 
     public function getTimeOfAll(){
-        $query="SELECT * FROM $this->tableName as z JOIN arbeitsende as ae ON z.aeId = ae.aeId JOIN arbeitsbeginn as ab ON z.abId = ab.abId JOIN mitarbeiter as m ON m.id= z.zid ";
+        $query="SELECT * FROM `zeiterfassungen` JOIN arbeitsende ON zeiterfassungen.aeId= arbeitsende.aeId JOIN arbeitsbeginn ON arbeitsbeginn.abId = zeiterfassungen.abId JOIN mitarbeiter ON mitarbeiter.id = zeiterfassungen.mId ORDER BY beginn DESC ";
         $statement = ConnectionHandler::getConnection()->prepare($query);
 
-        if(!$statement->execute()){
+        $statement->execute();
+
+        $result = $statement->get_result();
+        if (!$result) {
             throw new Exception($statement->error);
         }
-        else{
-            $resultat = $statement->get_result();
-            $arbeitsZeiten = array();
-            while ($zeit = $resultat->fetch_object()) {
-                $arbeitsZeiten[]= $zeit;
-            }
-            return $arbeitsZeiten;
+
+        // Datensätze aus dem Resultat holen und in das Array $rows speichern
+        $rows = array();
+        while ($row = $result->fetch_object()) {
+            $rows[] = $row;
         }
+
+        return $rows;
 
     }
     public function getTimeOfOne($sid){
-        $query="SELECT * FROM $this->tableName as z JOIN arbeitsende as ae ON z.aeId = ae.aeId JOIN arbeitsbeginn as ab ON z.abId = ab.abId JOIN mitarbeiter as m ON m.id= z.zid WHERE mid= ?";
+        $query="SELECT * FROM `zeiterfassungen` JOIN arbeitsende ON zeiterfassungen.aeId= arbeitsende.aeId JOIN arbeitsbeginn ON arbeitsbeginn.abId = zeiterfassungen.abId JOIN mitarbeiter ON mitarbeiter.id = zeiterfassungen.mId WHERE mid= ? ORDER BY beginn DESC";
         $statement = ConnectionHandler::getConnection()->prepare($query);
         $statement->bind_param('i', $sid);
         if(!$statement->execute()){

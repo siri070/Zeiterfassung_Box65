@@ -7,6 +7,7 @@
  */
 require_once '../repository/ZeiterfassungRepository.php';
 require_once '../repository/MitarbeiterRepository.php';
+require_once '../lib/validation.php';
 class ZeiterfassungController
 {
     public function index(){
@@ -26,19 +27,35 @@ class ZeiterfassungController
     }
     public function suchen(){
         if($_POST['suchen']){
+            $validation = new validation();
             $Name= $_POST['name'];
+
             $sNR= $_POST['snr'];
+
             if(empty($Name)){
-                $MitarbeiterRepository = new MitarbeiterRepository();
-               $mitarbeiter= $MitarbeiterRepository->readBySnr($sNR);
-               $this->suchenView($mitarbeiter->id);
+                if($validation->laenge(4,$sNR)){
+                    $_SESSION['fehler']=NULL;
+                    $MitarbeiterRepository = new MitarbeiterRepository();
+                    $mitarbeiter= $MitarbeiterRepository->readBySnr($sNR);
+                    $this->suchenView($mitarbeiter->id);
+                }
+                else{
+                    $_SESSION['fehler']= "Die S-Nr kann nicht länger als 4 Zeichen sein";
+                    $this->adminIndex();
+                }
             }
             elseif (empty($sNR)){
+                if($validation->kuerze(2,$Name)) {
+                    $_SESSION['fehler']=NULL;
+                    $MitarbeiterRepository = new MitarbeiterRepository();
+                    $mitarbeiter = $MitarbeiterRepository->readByName($Name);
 
-                $MitarbeiterRepository = new MitarbeiterRepository();
-                $mitarbeiter=$MitarbeiterRepository->readByName($Name);
-
-               $this->suchenView($mitarbeiter->id);
+                    $this->suchenView($mitarbeiter->id);
+                }
+                else{
+                    $_SESSION['fehler']= "Der Vorname muss mindestens 2 Zeichen lang sein";
+                    $this->adminIndex();
+                }
             }
 
         }

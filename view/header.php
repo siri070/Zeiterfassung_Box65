@@ -54,3 +54,8 @@
     <br>
     <h1><?= $heading ?></h1>
 
+        <p style="color: red; font-size: 2em;"> <?php if(isset($_SESSION['fehler'])){
+            echo $_SESSION['fehler'];
+            }
+            ?></p>
+

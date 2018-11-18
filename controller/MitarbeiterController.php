@@ -5,6 +5,7 @@
  * Date: 12.09.2018
  * Time: 15:42
  */
+require_once ("../lib/validation.php");
 require_once ("../repository/MitarbeiterRepository.php");
 
 class mitarbeiterController
@@ -42,6 +43,11 @@ class mitarbeiterController
 
         if ($_POST['send']){
             $benutzername = $_POST['benutzername'];
+            $bnOK= false;
+            $validation= new validation();
+            if($validation->laenge(4,$benutzername)){
+                $bnOk= true;
+            }
             $passwort = $_POST['passwort'];
 
             $mitarbeiterRepository = new MitarbeiterRepository();
@@ -49,7 +55,8 @@ class mitarbeiterController
             $mitarbeiter=$mitarbeiterRepository->readByKuerzel($benutzername);
             $passwortStimmt= password_verify($passwort, $mitarbeiter->passwort);
 
-            if($passwortStimmt){
+            if($passwortStimmt && $bnOk){
+                $_SESSION['fehler']= NULL;
                 $_SESSION['id']= $mitarbeiter->id;
                 if($mitarbeiter->admin == 1){
                     $_SESSION['admin']=1;
@@ -60,8 +67,13 @@ class mitarbeiterController
                     header('Location: /BWD/Zeiterfassung_Box65/public/Default');
                 }
             }
-            else{
-                $GLOBALS['fehler']= "Passwort ist falsch.";
+            elseif(!$passwortStimmt){
+                $_SESSION['fehler']= "Passwort ist falsch.";
+                header('Location: /BWD/Zeiterfassung_Box65/public/Mitarbeiter/Login');
+
+            }
+            elseif (!$bnOk){
+                $_SESSION['fehler']= "Benutzername zu lang. Max 4 Zeichen.";
                 header('Location: /BWD/Zeiterfassung_Box65/public/Mitarbeiter/Login');
 
             }
@@ -86,19 +98,28 @@ class mitarbeiterController
 
     public function hinzufuegen(){
         if ($_POST['hinzufuegen']) {
+
             $vorname = $_POST['vorname'];
+
+
             $nachname = $_POST['name'];
+
             $susNR = $_POST['snr'];
+
             $passwort  = $_POST['passwort'];
+            if($this->validationUser($vorname,$nachname,$susNR,$passwort))
+               $mitarbeiterRepository = new MitarbeiterRepository();
+               $mitarbeiterRepository->create($vorname, $nachname, $susNR, $passwort);
+               header('Location: /BWD/Zeiterfassung_Box65/public/mitarbeiter');
+           }
+           else{
+               header('Location: /BWD/Zeiterfassung_Box65/public/mitarbeiter/hinzufuegenView');
+           }
 
-
-           $mitarbeiterRepository = new MitarbeiterRepository();
-           $mitarbeiterRepository->create($vorname, $nachname, $susNR, $passwort);
         }
 
         // Anfrage an die URI /user weiterleiten (HTTP 302)
-        header('Location: /BWD/Zeiterfassung_Box65/public/mitarbeiter');
-    }
+
 
     public function bearbeitenView(){
         $view = new View('admin_MA_bearbeiten');
@@ -118,13 +139,59 @@ class mitarbeiterController
             $nachname = $_POST['name'];
             $susNR = $_POST['snr'];
             $passwort  = $_POST['passwort'];
-            $mitarbeiterRepository = new MitarbeiterRepository();
-            $mitarbeiterRepository ->updateByID($vorname, $nachname,$susNR,$passwort,$id);
+            if($this->validationUser($vorname,$nachname,$susNR,$passwort)){
+                $mitarbeiterRepository = new MitarbeiterRepository();
+                $mitarbeiterRepository ->updateByID($vorname, $nachname,$susNR,$passwort,$id);
+                header('Location: /BWD/Zeiterfassung_Box65/public/mitarbeiter');
+            }
+            else{
+                header('Location: /BWD/Zeiterfassung_Box65/public/Mitarbeiter/bearbeitenView?id='.$id);
+            }
 
         }
-        header('Location: /BWD/Zeiterfassung_Box65/public/mitarbeiter');
-    }
 
+    }
+    public function validationUser($vorname,$nachname, $susNR,$passwort){
+        $validation= new validation();
+        $vornameOkL= $validation->laenge(50,$vorname);
+        $vornameOkK= $validation->kuerze(2,$vorname);
+        $nachnameOkL=$validation->laenge(50,$nachname);
+        $nachnameOkK= $validation->kuerze(3,$nachname);
+        $snrOKL= $validation->laenge(4,$susNR);
+        $passwortOK= $validation->kuerze(8,$passwort);
+
+
+        if($vornameOkK && $vornameOkL&& $nachnameOkK&& $nachnameOkL&&$snrOKL&&$passwortOK ){
+            $_SESSION['fehler']= NULL;
+            return true;
+        }
+         elseif (!$vornameOkL){
+        $_SESSION['fehler']= "Der Vorname darf nicht länger als 50 Zeichen sein.";
+        return false;
+        }
+        elseif (!$vornameOkK){
+            $_SESSION['fehler']= "Der Vorname muss mindestens 2 Zeichen lang sein.";
+            return false;
+        }
+        elseif (!$nachnameOkL){
+            $_SESSION['fehler']= "Der Nachname darf nicht länger als 50 Zeichen sein.";
+            return false;
+        }
+        elseif (!$nachnameOkK){
+            $_SESSION['fehler']= "Der Nachname muss mindestens 3 Zeichen lang sein.";
+            return false;
+        }
+        elseif (!$snrOKL){
+            $_SESSION['fehler']= "Die S-NR darf nicht länger als 4 Zeichen sein.";
+            return false;
+        }
+        elseif (!$passwortOK){
+            $_SESSION['fehler']= "Das Passwort muss mindestens 8 Zeichen lang sein.";
+            return false;
+        }
+
+
+    }
     public function loeschen(){
         if($_POST['delete']){
             $id = $_GET['id'];

@@ -8,9 +8,10 @@
 require_once ("../repository/MitarbeiterRepository.php");
 require_once ("../repository/ArbeitsendeRepository.php");
 require_once ("../repository/ZeiterfassungRepository.php");
-
+require_once ("../lib/validation.php");
 class ArbeistendeController
 {
+
     public function index(){
 
 
@@ -34,7 +35,13 @@ class ArbeistendeController
     public function doLogin(){
 
         if ($_POST['send']){
+            $bnOk= false;
+
             $benutzername = $_POST['benutzername'];
+            $validation= new validation();
+            if($validation->laenge(4,$benutzername)){
+                $bnOk= true;
+            }
             $passwort = $_POST['passwort'];
 
             $mitarbeiterRepository = new MitarbeiterRepository();
@@ -42,7 +49,8 @@ class ArbeistendeController
             $mitarbeiter=$mitarbeiterRepository->readByKuerzel($benutzername);
             $passwortStimmt= password_verify($passwort, $mitarbeiter->passwort);
 
-            if($passwortStimmt){
+            if($passwortStimmt && $bnOk){
+                $_SESSION['fehler']= NULL;
                 $_SESSION['id']= $mitarbeiter->id;
                 if($mitarbeiter->admin == 1){
                     $_SESSION['admin']=1;
@@ -55,9 +63,14 @@ class ArbeistendeController
 
                 }
             }
-            else{
-                $GLOBALS['fehler']= "Passwort ist falsch.";
-                header('Location: /BWD/Zeiterfassung_Box65/public/Mitarbeiter/Login');
+            elseif(!$passwortStimmt){
+                $_SESSION['fehler']= "Passwort ist falsch.";
+                header('Location: /BWD/Zeiterfassung_Box65/public/Arbeistende/Login');
+
+            }
+            elseif (!$bnOk){
+                $_SESSION['fehler']= "Benutzername zu lang. Max 4 Zeichen.";
+                header('Location: /BWD/Zeiterfassung_Box65/public/Arbeistende/Login');
 
             }
 

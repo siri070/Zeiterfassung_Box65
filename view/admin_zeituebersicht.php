@@ -10,6 +10,7 @@ $form->end();
         <h2 class="item title"> Es konnten keine Zeiten gefunden werden.  </h2>
     </div>
 <?php else: ?>
+
         <table>
         <tr>
         <th>Nachname              </th>
