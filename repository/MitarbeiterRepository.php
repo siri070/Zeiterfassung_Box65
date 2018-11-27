@@ -72,12 +72,12 @@ class MitarbeiterRepository extends Repository
     }
     function readBySnr ($snr){
         // Query erstellen
-        $query = "SELECT * FROM {$this->tableName} WHERE S-NR = ?";
+        $query = "SELECT * FROM {$this->tableName} WHERE benutzername = ?";
 
         // Datenbankverbindung anfordern und, das Query "preparen" (vorbereiten)
         // und die Parameter "binden"
         $statement = ConnectionHandler::getConnection()->prepare($query);
-        $statement->bind_param('i', $snr);
+        $statement->bind_param('s', $snr);
 
         // Das Statement absetzen
         $statement->execute();
